@@ -10,8 +10,6 @@ const App = () => {
 
   const fetchData = async () => {
     const data = await fetchBlogPosts();
-
-    console.log(data);
     setBlogPosts(data);
   };
 
