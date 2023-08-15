@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.2.7",
     "axios": "^1.4.0",
     "dart-sass": "^1.25.0",
+    "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -46,8 +47,8 @@
     ]
   },
   "devDependencies": {
+    "sass": "^1.65.1",
     "sass-loader": "^13.3.2",
-    "wp-types": "^3.62.4",
-    "sass": "^1.65.1"
+    "wp-types": "^3.62.4"
   }
 }

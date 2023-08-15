@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { fetchBlogPosts } from './utils/api';
-import { WP_REST_API_Posts } from 'wp-types';
+import { useEffect, useState } from 'react';
+import './core/styles/App.scss';
+import { fetchBlogPosts } from './core/utils/api';
+import {
+  WP_REST_API_Posts,
+  WP_REST_API_Users,
+  WP_REST_API_Terms,
+} from 'wp-types';
+import { Col, Link, Row } from '@canonical/react-components';
+import { format } from 'date-fns';
+import PostCard from './components/PostCard';
 
 const App = () => {
   const [blogPosts, setBlogPosts] = useState<WP_REST_API_Posts>([]);
@@ -19,22 +25,17 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="l-main container">
+      <section className="p-section">
+        {blogPosts && (
+          <Row className="u-equal-height no-padding-x">
+            {blogPosts.map((post, i) => (
+              <PostCard key={i} post={post} />
+            ))}
+          </Row>
+        )}
+      </section>
+    </main>
   );
 };
 
