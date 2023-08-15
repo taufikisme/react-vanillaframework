@@ -1,13 +1,8 @@
 import { useEffect, useState } from 'react';
 import './core/styles/App.scss';
 import { fetchBlogPosts } from './core/utils/api';
-import {
-  WP_REST_API_Posts,
-  WP_REST_API_Users,
-  WP_REST_API_Terms,
-} from 'wp-types';
-import { Col, Link, Row } from '@canonical/react-components';
-import { format } from 'date-fns';
+import { WP_REST_API_Posts } from 'wp-types';
+import { Row } from '@canonical/react-components';
 import PostCard from './components/PostCard';
 
 const App = () => {
