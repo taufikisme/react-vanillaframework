@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { fetchBlogPosts } from './utils/api';
+import { WP_REST_API_Posts } from 'wp-types';
 
-function App() {
+const App = () => {
+  const [blogPosts, setBlogPosts] = useState<WP_REST_API_Posts>([]);
+
+  const fetchData = async () => {
+    const data = await fetchBlogPosts();
+
+    console.log(data);
+    setBlogPosts(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +36,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
